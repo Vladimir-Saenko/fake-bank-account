@@ -44,3 +44,13 @@ header {
   color: darkred;
   margin: 0 5px;
 }
+
+.btn {
+  font-size: 1.25em;
+  background-color: var(--color-item);
+  color: white;
+}
+
+.btn:hover {
+  background-color: var(--color-accent);
+}
