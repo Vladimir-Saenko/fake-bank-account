@@ -16,9 +16,31 @@
 
 .app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 header {
-  margin-top: 2em;
+  background-color: var(--color-light);
+  margin-top: 1em;
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+.status {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2em;
+  font-size: 1.5em;
+}
+
+.output {
+  padding: 0 5px;
+  border: solid 1px darkgray;
+  border-radius: 10%;
+  color: darkred;
+  margin: 0 5px;
 }
