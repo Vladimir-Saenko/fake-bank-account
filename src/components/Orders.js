@@ -1,8 +1,12 @@
-export default function Orders({ dispatch }) {
+export default function Orders({ dispatch, balance, loan }) {
+  const isNotLoan = loan === 0;
+  const isNotMoney = balance === 0;
+  const isCanClosed = isNotMoney & isNotLoan;
   return (
     <div className="orders">
       <button
-        className="btn"
+        className={isNotMoney ? "btn-disabled" : "btn"}
+        disabled={isNotMoney}
         onClick={() => dispatch({ type: "order", payload: "draw" })}
       >
         Снять
@@ -20,13 +24,15 @@ export default function Orders({ dispatch }) {
         Кредит
       </button>
       <button
-        className="btn"
+        className={isNotLoan ? "btn-disabled" : "btn"}
+        disabled={isNotLoan}
         onClick={() => dispatch({ type: "order", payload: "payLoan" })}
       >
         Гашение
       </button>
       <button
-        className="btn"
+        className={isCanClosed ? "btn" : "btn-disabled"}
+        disabled={!isCanClosed}
         onClick={() => dispatch({ type: "closeAccount" })}
       >
         Закрыть счет

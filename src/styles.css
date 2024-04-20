@@ -3,6 +3,7 @@
   --color-light: #f1f3f5;
 
   --color-item: #1098ad;
+  --color-item-disabled: #b0e1e9;
   --color-accent: #0b6674f2;
 }
 
@@ -58,6 +59,16 @@ header {
 .btn:hover {
   background-color: var(--color-accent);
   box-shadow: 0 0 5px var(--color-item);
+}
+
+.btn-disabled {
+  font-size: 1.25em;
+  background-color: var(--color-item-disabled);
+  color: #485555;
+  padding: 0 0.25em;
+  border: solid 1px darkslategray;
+  border-radius: 5px;
+  width: 7em;
 }
 
 .welcome {
