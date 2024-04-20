@@ -1,7 +1,4 @@
-export default function Status() {
-  const balance = 5000;
-  const loan = 0;
-
+export default function Status({ balance, loan }) {
   return (
     <div className="status">
       <span>

@@ -49,8 +49,24 @@ header {
   font-size: 1.25em;
   background-color: var(--color-item);
   color: white;
+  padding: 0 0.25em;
+  border: solid 1px darkslategray;
+  border-radius: 0 5px 5px 0;
+  width: 7em;
 }
 
 .btn:hover {
   background-color: var(--color-accent);
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 1em;
+  font-size: 1.5em;
+  color: var(--color-accent);
+}
+
+.welcome-btn {
+  width: auto;
+  border-radius: 5px;
 }
