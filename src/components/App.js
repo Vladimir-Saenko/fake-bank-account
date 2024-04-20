@@ -51,14 +51,16 @@ function reducer(state, action) {
       break;
 
     case "closeAccount":
-      return { initState };
+      if (state.balance === 0 && state.loan === 0) return { initState };
+      else return { ...state };
+
     default:
       throw new Error("Неизвестная операция");
   }
 }
 
 export default function App() {
-  const [{ balance, loan, isClient, status }, dispatch] = useReducer(
+  const [{ balance, loan, isClient, status, orderType }, dispatch] = useReducer(
     reducer,
     initState
   );
@@ -70,7 +72,15 @@ export default function App() {
         <>
           <Status balance={balance} loan={loan} />
           <Orders dispatch={dispatch} />
-          {status === "order" && <HowMuchForm dispatch={dispatch} />}
+          {status === "order" && (
+            <HowMuchForm
+              dispatch={dispatch}
+              balance={balance}
+              loan={loan}
+              loanLimit={LOAN_LIMIT}
+              orderType={orderType}
+            />
+          )}
         </>
       ) : (
         <Welcome dispatch={dispatch} />

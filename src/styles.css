@@ -89,6 +89,19 @@ header {
 }
 
 .how-much {
-  text-align: center;
   margin-top: 1em;
+  text-align: center;
+}
+
+.how-much > p > input,
+.how-much > p > label {
+  font-size: 1.25em;
+}
+
+.how-much > p > input {
+  margin: 0 0.5em;
+}
+
+.btn-ok {
+  width: auto;
 }
