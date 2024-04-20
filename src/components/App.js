@@ -21,6 +21,34 @@ function reducer(state, action) {
       return { ...state, status: "ready", isClient: true };
     case "order":
       return { ...state, status: "order", orderType: action.payload };
+    case "ordered":
+      if (state.orderType === "deposit")
+        return {
+          ...state,
+          status: "ready",
+          balance: state.balance + action.payload,
+        };
+      if (state.orderType === "draw")
+        return {
+          ...state,
+          status: "ready",
+          balance: state.balance - action.payload,
+        };
+      if (state.orderType === "requestLoan")
+        return {
+          ...state,
+          status: "ready",
+          balance: state.balance + action.payload,
+          loan: state.loan + action.payload,
+        };
+      if (state.orderType === "payLoan")
+        return {
+          ...state,
+          status: "ready",
+          balance: state.balance - action.payload,
+          loan: state.loan - action.payload,
+        };
+      break;
 
     case "closeAccount":
       return { initState };
@@ -30,7 +58,7 @@ function reducer(state, action) {
 }
 
 export default function App() {
-  const [{ balance, loan, isClient, status, orderType }, dispatch] = useReducer(
+  const [{ balance, loan, isClient, status }, dispatch] = useReducer(
     reducer,
     initState
   );
@@ -42,7 +70,7 @@ export default function App() {
         <>
           <Status balance={balance} loan={loan} />
           <Orders dispatch={dispatch} />
-          {status === "order" && <HowMuchForm orderType={orderType} />}
+          {status === "order" && <HowMuchForm dispatch={dispatch} />}
         </>
       ) : (
         <Welcome dispatch={dispatch} />

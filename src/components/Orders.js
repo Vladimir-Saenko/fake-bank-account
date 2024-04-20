@@ -3,13 +3,13 @@ export default function Orders({ dispatch }) {
     <div className="orders">
       <button
         className="btn"
-        onClick={() => dispatch({ type: "order", payload: "deposit" })}
+        onClick={() => dispatch({ type: "order", payload: "draw" })}
       >
         Снять
       </button>
       <button
         className="btn"
-        onClick={() => dispatch({ type: "order", payload: "draw" })}
+        onClick={() => dispatch({ type: "order", payload: "deposit" })}
       >
         Положить
       </button>
