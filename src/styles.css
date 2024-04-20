@@ -51,12 +51,13 @@ header {
   color: white;
   padding: 0 0.25em;
   border: solid 1px darkslategray;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px;
   width: 7em;
 }
 
 .btn:hover {
   background-color: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-item);
 }
 
 .welcome {
@@ -68,5 +69,26 @@ header {
 
 .welcome-btn {
   width: auto;
+}
+
+.welcome > img {
+  margin: 0.5em 0;
+  box-shadow: 0 0 10px lightblue;
+}
+
+.orders {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2em;
+  background-color: var(--color-light);
+  padding: 1%;
+  border: solid 1px lightblue;
   border-radius: 5px;
+}
+
+.how-much {
+  text-align: center;
+  margin-top: 1em;
 }
