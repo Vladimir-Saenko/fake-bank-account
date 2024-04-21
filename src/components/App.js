@@ -51,7 +51,7 @@ function reducer(state, action) {
       break;
 
     case "closeAccount":
-      return { ...initState };
+      return initState;
     default:
       throw new Error("Неизвестная операция");
   }
